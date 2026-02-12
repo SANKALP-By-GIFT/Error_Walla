@@ -1,0 +1,192 @@
+
+
+🧪 SDP Open Book Examination
+Project Option: Admin Dashboard with Analytics (Frontend Only)
+
+Duration: 5 Hours (Development)
+Evaluation: 2:00 – 4:00 PM (Demo + GitHub Review)
+Difficulty Level: Medium → Moderate Advanced (MCA Level)
+Backend: ❌ Not Allowed (Use Mock APIs Only)
+
+📌 Problem Statement
+
+You are required to design and implement a Single Page Admin Dashboard Application using React.
+
+The dashboard must simulate:
+
+Authentication & protected routing
+
+Sidebar-based navigation
+
+Analytics data display
+
+Server-state fetching using React Query
+
+Performance optimization techniques
+
+The objective is to evaluate your understanding of:
+
+Routing architecture
+
+Server state management
+
+Component composition
+
+Performance optimization
+
+Clean folder structure
+
+🎯 SECTION A — CORE REQUIREMENTS
+1️⃣ Authentication & Protected Routes 
+Functional Requirements
+
+Implement a Login page
+
+Simulate authentication (mock token)
+
+Redirect authenticated users to dashboard
+
+Prevent unauthenticated users from accessing dashboard routes
+
+Implement Logout functionality
+
+Technical Requirements
+
+Use React Router v6
+
+Create ProtectedRoute component
+
+Store authentication state using Context API
+
+Token simulation (string-based)
+
+2️⃣ Sidebar Navigation Layout
+UI Requirements
+
+Create a fixed sidebar layout with the following routes:
+
+/dashboard
+/dashboard/analytics
+/dashboard/users
+/dashboard/settings
+
+
+Sidebar must include:
+
+Logo/title
+
+Navigation links
+
+Active link highlighting
+
+Logout button
+
+Technical Requirements
+
+Nested routing structure
+
+Layout component wrapping dashboard routes
+
+Use Outlet for nested rendering
+
+3️⃣ Analytics Dashboard Page
+Functional Requirements
+
+Display:
+
+Total Users
+
+Total Revenue
+
+Active Subscriptions
+
+Monthly Growth %
+
+Each metric must be displayed using a reusable StatCard component.
+
+Technical Requirements
+
+Fetch analytics data using React Query
+
+Endpoint example:
+
+GET /analytics
+
+
+Handle:
+
+Loading state
+
+Error state
+
+Empty state
+
+Data must be displayed dynamically
+
+4️⃣ Users Management Page
+Functional Requirements
+
+Display list of users
+
+Each row shows:
+
+Name
+
+Email
+
+Status (Active/Inactive)
+
+Technical Requirements
+
+Fetch data using React Query
+
+Endpoint:
+
+GET /users
+
+
+Render list in table format
+
+Use reusable table row component
+
+5️⃣ Reusable Components Architecture
+
+You must create reusable components for:
+
+StatCard
+
+SidebarLink
+
+PageHeader
+
+Loader
+
+ErrorMessage
+
+Explain in comments:
+
+Why reusability improves maintainability
+
+6 - You must:
+
+Use React.lazy
+
+Wrap routes inside Suspense
+
+Lazy load:
+
+Analytics page
+
+Users page
+
+Settings page
+
+Explain in comments:
+
+How code splitting improves performance
+
+Optimize sidebar rendering
+
+Explain:
+
+What problem memoization solves
