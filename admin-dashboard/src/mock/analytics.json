@@ -2,5 +2,29 @@
   "totalUsers": 1250,
   "revenue": 54000,
   "subscriptions": 320,
-  "growth": 12.5
+  "growth": 12.5,
+  "monthlyGrowthData": [
+    { "month": "Jan", "users": 800, "revenue": 32000, "subscriptions": 180 },
+    { "month": "Feb", "users": 950, "revenue": 42500, "subscriptions": 250 },
+    { "month": "Mar", "users": 1100, "revenue": 48000, "subscriptions": 290 },
+    { "month": "Apr", "users": 1250, "revenue": 54000, "subscriptions": 320 }
+  ],
+  "revenueByCategory": [
+    { "category": "Premium", "value": 32400, "percentage": 60 },
+    { "category": "Enterprise", "value": 13500, "percentage": 25 },
+    { "category": "Basic", "value": 8100, "percentage": 15 }
+  ],
+  "activeUsers": {
+    "daily": 450,
+    "weekly": 850,
+    "monthly": 1250
+  },
+  "conversionRate": 3.8,
+  "churnRate": 1.2,
+  "averageSessionDuration": 24.5,
+  "topPages": [
+    { "page": "/dashboard", "views": 5230, "avgTime": 8.5 },
+    { "page": "/analytics", "views": 3120, "avgTime": 12.3 },
+    { "page": "/users", "views": 2890, "avgTime": 6.2 }
+  ]
 }

@@ -1,27 +1,24 @@
-/*
-Reusable PageHeader component.
+import React from "react";
 
-Why reusability improves maintainability:
-Instead of writing header code in every page, we reuse PageHeader.
-If we need to change design later, we change it in one place only.
+/*
+PAGEHEADER COMPONENT - Reusable page title section
+
+WHY REUSABILITY IMPROVES MAINTAINABILITY:
+- All pages use consistent header styling
+- Reduces code duplication (used in Analytics, Users, Settings, Dashboard)
+- React.memo prevents re-renders of children on parent state changes
+- Easy to add features (breadcrumbs, actions) in one place
 */
 
-function PageHeader({ title, subtitle }) {
-
+const PageHeader = ({ title, subtitle }) => {
   return (
-
     <div className="page-header">
-
       <h1 className="page-title">{title}</h1>
-
       {subtitle && (
         <p className="page-subtitle">{subtitle}</p>
       )}
-
     </div>
-
   );
+};
 
-}
-
-export default PageHeader;
+export default React.memo(PageHeader);
