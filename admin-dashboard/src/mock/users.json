@@ -1,20 +1,12 @@
 [
-  {
-    "id": 1,
-    "name": "Nikhil Maharana",
-    "email": "nikhil@email.com",
-    "status": "Active"
-  },
-  {
-    "id": 2,
-    "name": "Rahul Sharma",
-    "email": "rahul@email.com",
-    "status": "Inactive"
-  },
-  {
-    "id": 3,
-    "name": "Priya Singh",
-    "email": "priya@email.com",
-    "status": "Active"
-  }
+  { "id": 1, "name": "Nikhil Maharana", "email": "nikhil@email.com", "status": "Active" },
+  { "id": 2, "name": "Rahul Sharma", "email": "rahul@email.com", "status": "Active" },
+  { "id": 3, "name": "Priya Singh", "email": "priya@email.com", "status": "Inactive" },
+  { "id": 4, "name": "Amit Kumar", "email": "amit@email.com", "status": "Active" },
+  { "id": 5, "name": "Sneha Das", "email": "sneha@email.com", "status": "Active" },
+  { "id": 6, "name": "Rohan Patel", "email": "rohan@email.com", "status": "Inactive" },
+  { "id": 7, "name": "Anjali Verma", "email": "anjali@email.com", "status": "Active" },
+  { "id": 8, "name": "Vikash Gupta", "email": "vikash@email.com", "status": "Active" },
+  { "id": 9, "name": "Pooja Mishra", "email": "pooja@email.com", "status": "Active" },
+  { "id": 10, "name": "Arjun Reddy", "email": "arjun@email.com", "status": "Inactive" }
 ]

@@ -1,3 +1,4 @@
+import PageHeader from "../components/PageHeader";
 
 function Settings() {
 
@@ -5,7 +6,11 @@ function Settings() {
 
     <div>
 
-      <h1>Settings</h1>
+      <PageHeader
+        title="Settings"
+        subtitle="Manage your application settings"
+      />
+
 
       <div style={{
         background: "white",

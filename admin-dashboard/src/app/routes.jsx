@@ -1,38 +1,34 @@
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { lazy, Suspense } from "react";
 
 import Login from "../pages/Login";
-import ProtectedRoute from "../routes/ProtectedRoute";
 import DashboardLayout from "../pages/DashboardLayout";
+import DashboardHome from "../pages/DashboardHome";
+import ProtectedRoute from "../routes/ProtectedRoute";
 
 /*
-React.lazy → Code Splitting
-Pages load only when user visits them.
-This improves performance and reduces initial bundle size.
+React.lazy improves performance by loading components only when needed.
+This reduces initial bundle size.
 */
+
 const Analytics = lazy(() => import("../pages/Analytics"));
 const Users = lazy(() => import("../pages/Users"));
 const Settings = lazy(() => import("../pages/Settings"));
 
-function DashboardHome() {
-  return <h2>Dashboard Home</h2>;
-}
-
 export default function AppRoutes() {
+
   return (
+
     <BrowserRouter>
 
-      {/* Suspense shows fallback while lazy pages load */}
-      <Suspense fallback={<h2>Loading page...</h2>}>
+      <Suspense fallback={<div>Loading page...</div>}>
+
         <Routes>
 
-          {/* Default route → redirect to login */}
           <Route path="/" element={<Navigate to="/login" />} />
 
-          {/* Public route */}
           <Route path="/login" element={<Login />} />
 
-          {/* Protected dashboard routes */}
           <Route
             path="/dashboard"
             element={
@@ -41,16 +37,23 @@ export default function AppRoutes() {
               </ProtectedRoute>
             }
           >
-            {/* Nested routes using Outlet */}
+
             <Route index element={<DashboardHome />} />
+
             <Route path="analytics" element={<Analytics />} />
+
             <Route path="users" element={<Users />} />
+
             <Route path="settings" element={<Settings />} />
+
           </Route>
 
         </Routes>
+
       </Suspense>
 
     </BrowserRouter>
+
   );
+
 }

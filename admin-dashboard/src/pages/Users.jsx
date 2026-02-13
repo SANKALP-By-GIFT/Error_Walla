@@ -5,6 +5,8 @@ import { fetchUsers } from "../api/usersApi";
 import Loader from "../components/Loader";
 import ErrorMessage from "../components/ErrorMessage";
 import UserRow from "../components/UserRow";
+import PageHeader from "../components/PageHeader";
+
 
 /*
 Users page fetches data using React Query.
@@ -24,9 +26,13 @@ function Users() {
 
   return (
 
-    <div>
+    <div className="table-container">
 
-      <h1>Users Management</h1>
+      <PageHeader
+        title="Users Management"
+        subtitle="Manage all registered users"
+      />
+
 
       <table style={{
         width: "100%",
