@@ -1,7 +1,3 @@
-/*
-Settings page allows user preferences.
-This simulates real admin settings.
-*/
 
 function Settings() {
 
