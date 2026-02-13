@@ -12,15 +12,21 @@ function Login() {
   };
 
   return (
-    <div>
-      <h2>Login Page</h2>
+    <div className="login-container">
 
-      <button onClick={handleLogin}>
-        Login
-      </button>
+      <div className="login-box">
+
+        <h2>Admin Login</h2>
+
+        <button className="login-btn" onClick={handleLogin}>
+          Login
+        </button>
+
+      </div>
 
     </div>
   );
 }
 
+// REQUIRED default export
 export default Login;

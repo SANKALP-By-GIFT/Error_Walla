@@ -1,14 +1,21 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Login from "../pages/Login";
 import ProtectedRoute from "../routes/ProtectedRoute";
+import DashboardLayout from "../pages/DashboardLayout";
 
-function Dashboard() {
-  return <h2>Dashboard Page (Protected)</h2>;
+import Analytics from "../pages/Analytics";
+import Users from "../pages/Users";
+import Settings from "../pages/Settings";
+
+function DashboardHome() {
+  return <h2>Dashboard Home</h2>;
 }
 
 export default function AppRoutes() {
 
   return (
+
     <BrowserRouter>
 
       <Routes>
@@ -19,13 +26,24 @@ export default function AppRoutes() {
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <DashboardLayout />
             </ProtectedRoute>
           }
-        />
+        >
+
+          <Route index element={<DashboardHome />} />
+
+          <Route path="analytics" element={<Analytics />} />
+
+          <Route path="users" element={<Users />} />
+
+          <Route path="settings" element={<Settings />} />
+
+        </Route>
 
       </Routes>
 
     </BrowserRouter>
+
   );
 }
