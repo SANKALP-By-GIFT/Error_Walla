@@ -1,16 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "../pages/Login";
-import ProtectedRoute from "../routes/ProtectedRoute";
 import DashboardLayout from "../pages/DashboardLayout";
-
 import Analytics from "../pages/Analytics";
 import Users from "../pages/Users";
 import Settings from "../pages/Settings";
+import DashboardHome from "../pages/DashboardHome";
 
-function DashboardHome() {
-  return <h2>Dashboard Home</h2>;
-}
+import ProtectedRoute from "../routes/ProtectedRoute";
 
 export default function AppRoutes() {
 

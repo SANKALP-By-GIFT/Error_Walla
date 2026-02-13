@@ -1,8 +1,20 @@
 [
   {
     "id": 1,
-    "name": "John Doe",
-    "email": "john@example.com",
+    "name": "Nikhil Maharana",
+    "email": "nikhil@email.com",
+    "status": "Active"
+  },
+  {
+    "id": 2,
+    "name": "Rahul Sharma",
+    "email": "rahul@email.com",
+    "status": "Inactive"
+  },
+  {
+    "id": 3,
+    "name": "Priya Singh",
+    "email": "priya@email.com",
     "status": "Active"
   }
 ]
