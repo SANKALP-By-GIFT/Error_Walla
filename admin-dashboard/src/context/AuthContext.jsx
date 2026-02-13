@@ -1,51 +1,88 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
-/*
-Context API is used to store authentication state globally.
-This avoids prop drilling and allows any component to access auth state.
-*/
-
 const AuthContext = createContext();
+
+/*
+AuthContext manages authentication globally.
+Stores users and token using localStorage.
+*/
 
 export function AuthProvider({ children }) {
 
-  // Store token in state
-  const [token, setToken] = useState(null);
+  const [user, setUser] = useState(null);
 
-  // Load token from localStorage when app starts
+  // Load logged-in user
   useEffect(() => {
-    const savedToken = localStorage.getItem("token");
-    if (savedToken) {
-      setToken(savedToken);
+
+    const savedUser = localStorage.getItem("loggedUser");
+
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
     }
+
   }, []);
 
+  // Signup function
+  const signup = (username, email, password) => {
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const exists = users.find(u => u.email === email);
+
+    if (exists) {
+      return { success: false, message: "User already exists" };
+    }
+
+    const newUser = { username, email, password };
+
+    users.push(newUser);
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    return { success: true };
+  };
+
   // Login function
-  const login = () => {
-    const fakeToken = "mock-token-123";
-    localStorage.setItem("token", fakeToken);
-    setToken(fakeToken);
+  const login = (email, password) => {
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const found = users.find(
+      u => u.email === email && u.password === password
+    );
+
+    if (!found) {
+      return { success: false, message: "Invalid credentials" };
+    }
+
+    localStorage.setItem("loggedUser", JSON.stringify(found));
+
+    setUser(found);
+
+    return { success: true };
   };
 
-  // Logout function
+  // Logout
   const logout = () => {
-    localStorage.removeItem("token");
-    setToken(null);
-  };
 
-  // Check authentication
-  const isAuthenticated = !!token;
+    localStorage.removeItem("loggedUser");
+
+    setUser(null);
+  };
 
   return (
-    <AuthContext.Provider
-      value={{ token, login, logout, isAuthenticated }}
-    >
+    <AuthContext.Provider value={{
+      user,
+      login,
+      signup,
+      logout,
+      isAuthenticated: !!user
+    }}>
       {children}
     </AuthContext.Provider>
   );
 }
 
-// Custom hook for easy access
 export function useAuth() {
   return useContext(AuthContext);
 }

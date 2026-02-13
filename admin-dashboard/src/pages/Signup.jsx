@@ -2,15 +2,17 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
-function Login() {
+function Signup() {
 
-  const { login } = useAuth();
+  const { signup } = useAuth();
 
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-
-  const [password, setPassword] = useState("");
+  const [form, setForm] = useState({
+    username: "",
+    email: "",
+    password: ""
+  });
 
   const [error, setError] = useState("");
 
@@ -18,14 +20,18 @@ function Login() {
 
     e.preventDefault();
 
-    const result = login(email, password);
+    const result = signup(
+      form.username,
+      form.email,
+      form.password
+    );
 
     if (!result.success) {
       setError(result.message);
       return;
     }
 
-    navigate("/dashboard");
+    navigate("/login");
   };
 
   return (
@@ -34,35 +40,48 @@ function Login() {
 
       <div className="login-box">
 
-        <h2>Login</h2>
+        <h2>Signup</h2>
 
         {error && <p style={{ color: "red" }}>{error}</p>}
 
         <form onSubmit={handleSubmit}>
 
           <input
+            type="text"
+            placeholder="Username"
+            required
+            onChange={e =>
+              setForm({ ...form, username: e.target.value })
+            }
+          />
+
+          <input
             type="email"
             placeholder="Email"
             required
-            onChange={e => setEmail(e.target.value)}
+            onChange={e =>
+              setForm({ ...form, email: e.target.value })
+            }
           />
 
           <input
             type="password"
             placeholder="Password"
             required
-            onChange={e => setPassword(e.target.value)}
+            onChange={e =>
+              setForm({ ...form, password: e.target.value })
+            }
           />
 
           <button className="login-btn">
-            Login
+            Signup
           </button>
 
         </form>
 
         <p>
-          Don't have account?
-          <Link to="/signup"> Signup</Link>
+          Already have account?
+          <Link to="/login"> Login</Link>
         </p>
 
       </div>
@@ -72,4 +91,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;

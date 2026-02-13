@@ -8,7 +8,7 @@
 
 body {
   font-family: "Inter", "Segoe UI", sans-serif;
-  background: #e5e7eb;
+  background: hsl(222, 27%, 58%);
   color: #111827;
 }
 
@@ -557,5 +557,18 @@ table {
     padding: 25px;
 
   }
+
+}
+.login-box input {
+
+  width: 100%;
+
+  padding: 10px;
+
+  margin-top: 10px;
+
+  border-radius: 6px;
+
+  border: 1px solid #ccc;
 
 }

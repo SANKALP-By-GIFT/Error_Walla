@@ -5,6 +5,8 @@ import Login from "../pages/Login";
 import DashboardLayout from "../pages/DashboardLayout";
 import DashboardHome from "../pages/DashboardHome";
 import ProtectedRoute from "../routes/ProtectedRoute";
+import Signup from "../pages/Signup";
+
 
 /*
 React.lazy improves performance by loading components only when needed.
@@ -28,6 +30,9 @@ export default function AppRoutes() {
           <Route path="/" element={<Navigate to="/login" />} />
 
           <Route path="/login" element={<Login />} />
+
+          <Route path="/signup" element={<Signup />} />
+
 
           <Route
             path="/dashboard"
